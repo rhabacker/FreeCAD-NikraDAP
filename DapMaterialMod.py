@@ -285,14 +285,12 @@ class TaskPanelDapMaterialC:
                 self.densityDict[cardID2cardName[materialID]] = 0.000000001
             # We want to ignore all the gazillion types of steel - except the generic one
             elif 'Steel' not in cardID2cardName[materialID] or cardID2cardName[materialID] == 'Steel-Generic':
-                # The density values are in various number formats on the cards, so
-                # Get the density string from the card, and filter out the non-numeric characters
-                # This is fancy python - don't alter at all if you don't understand it
-                # Python Syntax:  f(x) if condition else g(x) for x in sequence
-                densityStr = cardID2cardData[materialID]['Density'][0:-3]
-                density = ''.join(x for x in densityStr if x.isdigit() or x in ['.', '-', ','])
-                densityNoComma = ''.join(x if x.isdigit() or x in ['.', '-'] else '.' for x in density)
-                self.densityDict[cardID2cardName[materialID]] = float(str(densityNoComma))
+                if 'Density' in cardID2cardData[materialID]:
+                    densityStr, unitStr = cardID2cardData[materialID]['Density'].split(' ')
+                    if unitStr == 'kg/mm^3':
+                        self.densityDict[cardID2cardName[materialID]] = float(str(densityStr)) * 1000**3
+                    else:
+                        self.densityDict[cardID2cardName[materialID]] = float(str(densityStr))
 
         # Last thing, add a custom density card at the end of the list
         self.densityDict['Custom'] = 1000
