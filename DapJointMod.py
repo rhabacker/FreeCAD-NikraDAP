@@ -711,7 +711,7 @@ class TaskPanelDapJointC:
         if Debug:
             DT.Mess("TaskPanelDapJointC-getStandardButtons")
 
-        return int(QtGui.QDialogButtonBox.Ok)
+        return QtGui.QDialogButtonBox.Ok
     #  -------------------------------------------------------------------------
     def __getstate__(self):
         if Debug:

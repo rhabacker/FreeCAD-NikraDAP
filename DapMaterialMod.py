@@ -392,7 +392,7 @@ class TaskPanelDapMaterialC:
     def getStandardButtons(self):
         if Debug:
             CAD.Console.PrintMessage("TaskPanelDapAnimateC-getStandardButtons\n")
-        return int(QtGui.QDialogButtonBox.Ok)
+        return QtGui.QDialogButtonBox.Ok
     #  -------------------------------------------------------------------------
     def accept(self):
         """Run when we press the OK button"""

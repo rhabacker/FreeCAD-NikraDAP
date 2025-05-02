@@ -389,7 +389,7 @@ class TaskPanelDapForceC:
     def getStandardButtons(self):
         if Debug:
             DT.Mess("TaskPanelDapForceC-getStandardButtons")
-        return int(QtGui.QDialogButtonBox.Ok)
+        return QtGui.QDialogButtonBox.Ok
     #  -------------------------------------------------------------------------
     def accept(self):
         """Run when we press the OK button"""

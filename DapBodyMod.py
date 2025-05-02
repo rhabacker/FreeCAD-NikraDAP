@@ -553,7 +553,7 @@ class TaskPanelDapBodyC:
         [Called from FreeCAD]"""
         if Debug:
             DT.Mess("TaskPanelDapBodyC-getStandardButtons")
-        return int(QtGui.QDialogButtonBox.Ok)
+        return QtGui.QDialogButtonBox.Ok
     #  -------------------------------------------------------------------------
     def selectedAss4SolidsToFormF(self):
         """The ass4Solids list is the list of all the parts which make up this body.

@@ -391,7 +391,7 @@ class TaskPanelDapSolverC:
             DT.Mess("TaskPanelDapSolverC-getStandardButtons")
 
         # Create only an 'OK' button for the solver taskDialog
-        return int(QtGui.QDialogButtonBox.Ok)
+        return QtGui.QDialogButtonBox.Ok
     #  -------------------------------------------------------------------------
     def storeTimeValues(self):
         """Transfer the times selected in the dialog to our object"""
